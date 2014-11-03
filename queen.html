@@ -3,8 +3,36 @@
 	<script src="jquery.js"></script>
 	<script src="queen.js"></script>
 	<title>Queen</title>
+	<style>
+	body {
+		background-color: beige;
+	}
+	.box {
+		color: black;
+		border: 1px solid black;
+		margin-top: 25px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin: 20px;
+		float: left;
+		font-size: 40px;
+	} 
+	</style>
 </head>
 <body>
-	<canvas id="b" width="640" height="640"></canvas>
+	<div style=" position: relative;">
+		<div style=" width: 640px; height: 0px;margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+			<canvas id="b" width="640" height="640"></canvas>
+			<div style="text-align:center">
+				<div style="margin-left: 35px" class="box">4</div>
+				<div class="box">5</div>
+				<div class="box">6</div>
+				<div class="box">7</div>
+				<div class="box">8</div>
+				<div class="box">9</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

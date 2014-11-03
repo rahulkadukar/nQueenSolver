@@ -1,46 +1,50 @@
 var board = [];
 var new_board;
-var n = 8;
+var n = 7;
 var seq = [];
 var total_attacks = n * n;
 
-$(document).ready(function() {
-	initialize_squares();
+$(document).ready(function(){
+	$(".box").click(function(){
+		n = $(this).html();
 
-	var attack = 0;
-	attack = complete_evaluation(board);
-	console.log(attack);
+		board = [];
+		seq = [];
+		total_attacks = n * n;
 
-	var total = 0;
-	for(var r = 0; ; r++){
-		total = 0;
-		for(var s = 0; s < n; s++){
-	 		total = move_pieces(s);
-	 	}
+		initialize_squares();
 
-	 	board = $.extend(true, [], new_board);
+		var attack = 0;
+		attack = complete_evaluation(board);
 
-		var seq = [];
-	  	for(var a = 0; a < n; a++)
-			for(var b = 0; b < n; b++)
-				if(board[a][b] == 1)
-					seq.push(b);
+		var total = 0;
+		for(var r = 0; ; r++){
+			total = 0;
+			for(var s = 0; s < n; s++){
+				total = move_pieces(s);
+			}
+
+			board = $.extend(true, [], new_board);
+
+			var seq = [];
+			for(var a = 0; a < n; a++)
+				for(var b = 0; b < n; b++)
+					if(board[a][b] == 1)
+						seq.push(b);
 
 
-		if(total_attacks == 0){
-			console.log(seq);
-			console.log(total_attacks);
-			draw_canvas(seq);
-			break;
+			if(total_attacks == 0){
+				draw_canvas(seq);
+				break;
+			}
+				
+			if(r > (n * n) || total_attacks == 2){
+				total_attacks = n * n;
+				r = 0;
+				initialize_squares();
+			}
 		}
-			
-		if(r > (n * n) || total_attacks == 2){
-			total_attacks = n * n;
-			r = 0;
-			initialize_squares();
-		}
-
-	}
+	});
 });
 
 function initialize_squares(){
@@ -139,17 +143,16 @@ function compute_attack(a,b,square){
 function draw_canvas(seq){
   var canvas = document.getElementById("b");
   var context = canvas.getContext("2d");
-  console.log(seq.length);
+  canvas.width = canvas.width;
+
   var space = 0;
   for(var x = 0; x <= n; x++){
-  	for(var y = 0; y <= n; y++){
   		context.moveTo(space, 0);
   		context.lineTo(space, 640);
   		context.stroke();
   		context.moveTo(0, space);
   		context.lineTo(640, space);
   		context.stroke();
-  	}
   	space += 640/n;
   }
 
