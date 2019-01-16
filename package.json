@@ -1,0 +1,26 @@
+{
+  "name": "nqueensolver",
+  "version": "1.0.0",
+  "description": "N Queen solver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulkadukar/nQueenSolver.git"
+  },
+  "keywords": [
+    "N",
+    "Queen"
+  ],
+  "author": "Rahul Kadukar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulkadukar/nQueenSolver/issues"
+  },
+  "homepage": "https://github.com/rahulkadukar/nQueenSolver#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1"
+  }
+}
